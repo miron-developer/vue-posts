@@ -1,0 +1,11 @@
+$textColor: #000;
+$primary-color: #93fdaa;
+$header-bg: #93939330;
+$primary-hover-color: #00871d;
+
+@media (prefers-color-scheme: dark) {
+  $textColor: #000;
+  $header-bg: #000000a1;
+  $primary-color: #00891e;
+  $primary-hover-color: #00871d;
+}
