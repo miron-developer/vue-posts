@@ -83,6 +83,7 @@ export default {
 
     p {
       margin-bottom: 15px;
+      white-space: pre-wrap;
 
       span {
         color: #005011;

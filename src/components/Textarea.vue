@@ -90,6 +90,7 @@ export default {
       border: none;
       outline: none;
       resize: vertical;
+      white-space: pre-wrap;
     }
   }
 }

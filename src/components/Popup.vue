@@ -1,19 +1,32 @@
 <script>
 export default {
   name: "AppPopup",
+  data() {
+    return {
+      animationStart: false,
+    };
+  },
   props: {
     title: String,
   },
   methods: {
     close() {
-      this.$emit("popup-close");
+      this.animationStart = false;
+      setTimeout(() => {
+        this.$emit("popup-close");
+      }, 100);
     },
+  },
+  mounted() {
+    setTimeout(() => {
+      this.animationStart = true;
+    }, 100);
   },
 };
 </script>
 
 <template>
-  <div class="popup">
+  <div class="popup" :class="animationStart && 'open'">
     <h2 class="title">{{ this.title }}</h2>
 
     <span class="close" @click="close">
@@ -30,8 +43,8 @@ export default {
 @import "@/assets/styles/variables.scss";
 
 .popup {
-  position: absolute;
-  left: 50%;
+  position: fixed;
+  left: -100vw;
   top: 50%;
   padding: 10px;
   width: 50vw;
@@ -40,6 +53,12 @@ export default {
   background: #00ff80;
   box-shadow: 0 0 7px 7px #0000003b;
   z-index: 10;
+  transition: 0.5s;
+
+  &.open {
+    left: 50%;
+    transition: 0.5s;
+  }
 
   .title {
     text-align: center;
